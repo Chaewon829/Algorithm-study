@@ -1,0 +1,20 @@
+
+def p(n):
+    return(p(n-1) + p(n-2))
+
+def f(n) :
+    if n//2 : # 홀수
+        a = p(n//2 + 1)
+        b = p(n//2)
+        return a**2 + b**2
+
+    else : #짝수
+        a = p(n//2 - 1)
+        b = p(n//2)
+        c = a+b
+        return a*b + b*c
+
+
+N = int(input())
+print(f(N)%1000000)
+    
