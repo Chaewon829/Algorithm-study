@@ -16,14 +16,15 @@ def find() :
     
     
     for A, B in arr :
-        if nodes[A-1] != None : #A가 생성된 노드라면
+        if nodes[A-1]!= None and nodes[B-1] != None : continue
+        elif nodes[B-1] == None : #A는 생성, B는 생성 전
             nodes[B-1] = Node(parent = A)
         else : #A 생성 전
-            nodes[A-1] = Node(parent = B)
+            if nodes[B-1] != None :
+                nodes[A-1] = Node(parent = B)
 
     for j in range(1, N) :
         print(nodes[j].parent)
-        # print("num : ",j, "parent : ",nodes[j].parent) 
 
 
 
